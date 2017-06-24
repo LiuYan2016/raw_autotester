@@ -44,7 +44,8 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
+        // browserName: 'firefox'
+        browserName: 'chrome'
     }],
     //
     // ===================
@@ -72,10 +73,10 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url parameter starts
     // with "/", then the base url gets prepended.
-    baseUrl: 'http://webdriver.io',
+    baseUrl: 'https://onedrive.live.com',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 100000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
