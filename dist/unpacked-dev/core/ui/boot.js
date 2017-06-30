@@ -30165,6 +30165,7 @@
 	const Top = __webpack_require__(629);
 	const TabBar = __webpack_require__(636);
 	const Tabs = __webpack_require__(638);
+	const UploadBar = __webpack_require__(673);
 	
 	module.exports = observer(function App() {
 	  return React.createElement(
@@ -30177,7 +30178,8 @@
 	      Content,
 	      { className: 'flex-container' },
 	      React.createElement(Tabs, null)
-	    )
+	    ),
+	    React.createElement(UploadBar, null)
 	  );
 	});
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
@@ -52931,6 +52933,183 @@
 	    onError.dispatch(e);
 	  });
 	};
+
+/***/ }),
+/* 660 */,
+/* 661 */,
+/* 662 */,
+/* 663 */,
+/* 664 */,
+/* 665 */,
+/* 666 */,
+/* 667 */,
+/* 668 */,
+/* 669 */,
+/* 670 */,
+/* 671 */,
+/* 672 */,
+/* 673 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {const { Header, HeaderRow } = __webpack_require__(552);
+	const TopText = __webpack_require__(674);
+	const RunButton = __webpack_require__(675);
+	const DevModeCheckbox = __webpack_require__(676);
+	const TargetsDropdown = __webpack_require__(677);
+	const TestsDropdown = __webpack_require__(678);
+	
+	module.exports = function Top() {
+	  return React.createElement(
+	    Header,
+	    null,
+	    React.createElement(
+	      HeaderRow,
+	      null,
+	      React.createElement(
+	        TopText,
+	        null,
+	        'Tests:'
+	      ),
+	      React.createElement(TestsDropdown, null),
+	      React.createElement(RunButton, null),
+	      React.createElement(DevModeCheckbox, null),
+	      React.createElement('div', { className: 'mdl-layout-spacer' }),
+	      React.createElement(
+	        TopText,
+	        null,
+	        'Target:'
+	      ),
+	      React.createElement(TargetsDropdown, null)
+	    )
+	  );
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
+
+/***/ }),
+/* 674 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {
+	module.exports = props => {
+	  return React.createElement(
+	    "span",
+	    { className: "mdl-layout-title" },
+	    props.children
+	  );
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
+
+/***/ }),
+/* 675 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {
+	const { Button } = __webpack_require__(552);
+	const { onTestsRun } = __webpack_require__(628);
+	
+	module.exports = class RunButton extends React.Component {
+	  render() {
+	    return React.createElement(
+	      Button,
+	      { id: 'run', raised: true, accent: true, ripple: true, onClick: () => onTestsRun.dispatch() },
+	      'Run'
+	    );
+	  }
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
+
+/***/ }),
+/* 676 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {
+	const { observer } = __webpack_require__(550);
+	const mobx = __webpack_require__(551);
+	const state = __webpack_require__(620);
+	
+	module.exports = observer(class DevModeCheckbox extends React.Component {
+	  constructor() {
+	    super();
+	    this.onChange = mobx.action(this.onChange.bind(this));
+	  }
+	  onChange(e) {
+	    state.devMode = e.target.checked;
+	  }
+	  render() {
+	    return React.createElement(
+	      'label',
+	      null,
+	      React.createElement('input', { type: 'checkbox', checked: state.devMode, onChange: this.onChange, style: { verticalAlign: 'middle' } }),
+	      React.createElement(
+	        'span',
+	        { style: { marginLeft: '2px' }, title: 'Stop on error and don\'t close tab' },
+	        'dev mode'
+	      )
+	    );
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
+
+/***/ }),
+/* 677 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {
+	const { observer } = __webpack_require__(550);
+	const state = __webpack_require__(620);
+	const Dropdown = __webpack_require__(634);
+	
+	module.exports = observer(class TargetsDropdown extends React.Component {
+	  render() {
+	    const items = state.targets.map(target => {
+	      return {
+	        value: target.id,
+	        text: target.name
+	      };
+	    });
+	    return React.createElement(Dropdown, { id: 'targets',
+	      value: state.selectedTargetId,
+	      items: items,
+	      align: 'right',
+	      onChange: item => state.selectedTargetId = item.value
+	    });
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
+
+/***/ }),
+/* 678 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(React) {const { observer } = __webpack_require__(550);
+	const state = __webpack_require__(620);
+	const Dropdown = __webpack_require__(634);
+	
+	module.exports = observer(class TestsDropdown extends React.Component {
+	  getItems() {
+	    const items = state.files.filter(file => !file.isSetup).map(file => {
+	      return {
+	        value: file.path,
+	        text: file.path
+	      };
+	    });
+	    if (items.length) {
+	      const text = `All (${ items.length } file${ items.length === 1 ? '' : 's' })`;
+	      items.unshift({ value: '', text });
+	    }
+	    return items;
+	  }
+	  render() {
+	    const items = this.getItems();
+	    return React.createElement(Dropdown, { id: 'tests',
+	      value: state.selectedFile,
+	      items: items,
+	      onChange: item => state.selectedFile = item.value
+	
+	    });
+	  }
+	});
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(354)))
 
 /***/ })
 /******/ ]);

@@ -4,6 +4,7 @@ const Title = require('./title');
 const Top = require('./top');
 const TabBar = require('./tab-bar/tab-bar');
 const Tabs = require('./tabs');
+const UploadBar = require('./upload-bar');
 
 module.exports = observer(function App() {
   return (
@@ -14,6 +15,7 @@ module.exports = observer(function App() {
       <Content className="flex-container">
         <Tabs/>
       </Content>
+      <UploadBar/>
     </Layout>
   );
 });
