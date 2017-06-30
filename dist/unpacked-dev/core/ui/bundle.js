@@ -221,24 +221,24 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 659:
+/***/ 660:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Main ui entry
 	 */
 	
-	const mobx = __webpack_require__(550);
+	const mobx = __webpack_require__(551);
 	const fs = __webpack_require__(14);
-	const state = __webpack_require__(619);
-	const { APP_STATE } = __webpack_require__(625);
-	const bgApi = __webpack_require__(660);
-	const windowApi = __webpack_require__(661);
-	const testsRun = __webpack_require__(662);
-	const configLoader = __webpack_require__(668);
-	const htmlConsole = __webpack_require__(663);
-	const setup = __webpack_require__(666);
-	const editor = __webpack_require__(644);
+	const state = __webpack_require__(620);
+	const { APP_STATE } = __webpack_require__(626);
+	const bgApi = __webpack_require__(661);
+	const windowApi = __webpack_require__(662);
+	const testsRun = __webpack_require__(663);
+	const configLoader = __webpack_require__(669);
+	const htmlConsole = __webpack_require__(664);
+	const setup = __webpack_require__(667);
+	const editor = __webpack_require__(645);
 	
 	/**
 	 * Start app
@@ -259,7 +259,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 660:
+/***/ 661:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -273,7 +273,7 @@ webpackJsonp([4],{
 	  onSessionStarted,
 	  onFileStarted,
 	  onTestStarted
-	} = __webpack_require__(627);
+	} = __webpack_require__(628);
 	
 	const {
 	  RELOAD,
@@ -301,16 +301,16 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 661:
+/***/ 662:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * API of window for programmatic run and other stuff
 	 */
 	
-	const testsRun = __webpack_require__(662);
-	const htmlConsole = __webpack_require__(663);
-	const setup = __webpack_require__(666);
+	const testsRun = __webpack_require__(663);
+	const htmlConsole = __webpack_require__(664);
+	const setup = __webpack_require__(667);
 	
 	/**
 	 * Exports API to window
@@ -340,7 +340,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 662:
+/***/ 663:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -348,13 +348,13 @@ webpackJsonp([4],{
 	 */
 	
 	const thenChrome = __webpack_require__(1);
-	const mobx = __webpack_require__(550);
-	const path = __webpack_require__(116);
+	const mobx = __webpack_require__(551);
+	const path = __webpack_require__(117);
 	const fs = __webpack_require__(14);
-	const state = __webpack_require__(619);
-	const { APP_STATE, TAB } = __webpack_require__(625);
-	const bgApi = __webpack_require__(660);
-	const { onTestsRun, onTestsDone, onConsoleClear } = __webpack_require__(627);
+	const state = __webpack_require__(620);
+	const { APP_STATE, TAB } = __webpack_require__(626);
+	const bgApi = __webpack_require__(661);
+	const { onTestsRun, onTestsDone, onConsoleClear } = __webpack_require__(628);
 	
 	exports.init = function () {
 	  onTestsRun.addListener(runOnCurrentData);
@@ -447,12 +447,12 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 663:
+/***/ 664:
 /***/ (function(module, exports, __webpack_require__) {
 
 	
-	const Console = __webpack_require__(664);
-	const { onConsoleMessage, onConsoleClear } = __webpack_require__(627);
+	const Console = __webpack_require__(665);
+	const { onConsoleMessage, onConsoleClear } = __webpack_require__(628);
 	
 	let instance = null;
 	
@@ -468,14 +468,14 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 664:
+/***/ 665:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Implementation of console interface
 	 */
 	
-	const stringifySafe = __webpack_require__(665);
+	const stringifySafe = __webpack_require__(666);
 	
 	const MAX_INLINE_OBJ_LENGTH = 50;
 	
@@ -588,7 +588,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 665:
+/***/ 666:
 /***/ (function(module, exports) {
 
 	exports = module.exports = stringify
@@ -622,7 +622,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 666:
+/***/ 667:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -631,11 +631,11 @@ webpackJsonp([4],{
 	 */
 	
 	const thenChrome = __webpack_require__(1);
-	const mobx = __webpack_require__(550);
+	const mobx = __webpack_require__(551);
 	const fs = __webpack_require__(14);
-	const defaults = __webpack_require__(624);
-	const defaultsExtra = __webpack_require__(667);
-	const { PROJECTS_DIR } = __webpack_require__(625);
+	const defaults = __webpack_require__(625);
+	const defaultsExtra = __webpack_require__(668);
+	const { PROJECTS_DIR } = __webpack_require__(626);
 	const logger = __webpack_require__(88).create('Setup');
 	
 	exports.applyOnFirstRun = function () {
@@ -686,7 +686,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 667:
+/***/ 668:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -792,19 +792,19 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 668:
+/***/ 669:
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
 	 * Loads tests config from url
 	 */
 	
-	const mobx = __webpack_require__(550);
-	const state = __webpack_require__(619);
-	const { onError } = __webpack_require__(627);
-	const { APP_STATE } = __webpack_require__(625);
+	const mobx = __webpack_require__(551);
+	const state = __webpack_require__(620);
+	const { onError } = __webpack_require__(628);
+	const { APP_STATE } = __webpack_require__(626);
 	const utils = __webpack_require__(8);
-	const evaluate = __webpack_require__(669);
+	const evaluate = __webpack_require__(670);
 	const logger = __webpack_require__(88).create('Config-loader');
 	
 	// todo: isLoading flag to reject parallel requests
@@ -872,7 +872,7 @@ webpackJsonp([4],{
 
 /***/ }),
 
-/***/ 669:
+/***/ 670:
 /***/ (function(module, exports) {
 
 	/**
