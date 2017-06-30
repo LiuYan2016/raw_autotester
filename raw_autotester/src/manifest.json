@@ -1,0 +1,53 @@
+{
+  "name": "Autotester",
+  "description": "Chrome extension that allows to develop and run automation tests right in browser",
+  "version": "0.1.3",
+  "manifest_version": 2,
+  "minimum_chrome_version": "54",
+  "permissions": [
+    "alarms",
+    "bookmarks",
+    "browsingData",
+    "clipboardRead",
+    "clipboardWrite",
+    "contentSettings",
+    "contextMenus",
+    "cookies",
+    "debugger",
+    "desktopCapture",
+    "downloads",
+    "fontSettings",
+    "geolocation",
+    "history",
+    "idle",
+    "management",
+    "nativeMessaging",
+    "notifications",
+    "pageCapture",
+    "proxy",
+    "sessions",
+    "storage",
+    "system.cpu",
+    "system.display",
+    "system.memory",
+    "system.storage",
+    "tabCapture",
+    "tabs",
+    "topSites",
+    "unlimitedStorage",
+    "webNavigation",
+    "webRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "browser_action": {},
+  "background": {
+    "scripts": [
+      "core/background/boot.js",
+      "core/background/bundle.js"
+    ],
+    "persistent": true
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' blob: filesystem: chrome-extension-resource:; object-src 'self'",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA39Uw73hvr9T0wrPq20zKJrMyNmmfNwuZLLIdKMAESVcLu4WQFoFDiD03F8bprj61tjRzgMHK3FoFUAOUAlA5lUpJZwMJEx2tJDE5G4ZHOO+whNbMD/HKK1WftbnEspYpRQURBYlTLf+wBllpUKDB1/Sw+BwDRp/H5yHbH6MYs92Fm0aqgTwDRYVi/skrQwkyaoe9Mv0W1yuonKDwzSZuvDkTaCcCGNSDdETr49GKIHLlyPxOIAU9wwmfCHxrOU3ae26iZCMWuqxapSN53mJXEQxQxxkbvYE7eY67arcGOhrXKgKfuvdcZc+oV7qCJu7vhiRtWqwdGAixSh/atNZNVQIDAQAB"
+}
