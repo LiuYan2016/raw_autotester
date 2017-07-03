@@ -148,6 +148,6 @@ Also please search issues for the same unsupported route and vote or create new 
 * [Awesome Selenium](https://github.com/christian-bromann/awesome-selenium)
 
 ## License
-MIT @ [Vitaliy Potapov](https://github.com/vitalets)
+MIT @ [Ved Vasavada](https://github.com/vedvasa)
 
 [1]: https://github.com/vitalets/autotester/releases/download/v0.1.3/autotester.zip
